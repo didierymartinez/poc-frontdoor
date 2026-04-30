@@ -1,0 +1,9 @@
+{
+  "name": "cosmos-mock-api",
+  "version": "1.0.0",
+  "description": "Mock API para pruebas de Trusted Headers",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

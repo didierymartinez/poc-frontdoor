@@ -1,0 +1,25 @@
+services:
+  # 1. El Microservicio Mock (El final del camino)
+  mock-api:
+    build: ./api
+    expose:
+      - "3000"
+    # No exponemos puertos a la máquina host, está aislado en la red interna de Docker
+
+  # 2. El API Gateway Interno (La Recepción)
+  gateway:
+    image: nginx:alpine
+    volumes:
+      - ./gateway/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "8081:8080" # Lo exponemos en el 8081 localmente para no chocar con otros servicios
+    depends_on:
+      - mock-api
+
+  # 3. El Túnel de Cloudflare (El Muro Exterior Zero Trust)
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    # Configuramos un "Quick Tunnel" gratuito que apuntará a nuestro Gateway Interno
+    command: tunnel --url http://gateway:8080
+    depends_on:
+      - gateway
