@@ -20,7 +20,7 @@ resource "cloudflare_pages_project" "frontend" {
       production_branch              = var.production_branch
       pr_comments_enabled            = true
       deployments_enabled            = true
-      production_deployments_enabled = true
+      production_deployment_enabled = true
       preview_deployment_setting     = "all"
       preview_branch_includes        = ["*"]
       preview_branch_excludes        = ["main", "master"]

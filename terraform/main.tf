@@ -10,13 +10,13 @@ module "frontend_contabilidad" {
 
   # IMPORTANTE: Reemplazar con el usuario/repo donde subirás el código
   github_repo_owner = "didierymartinez"
-  github_repo_name  = "git-add-poc-frontdoor"
+  github_repo_name  = "poc-frontdoor"
 
   build_command    = "npm run build"
   build_output_dir = "dist"
   
   # Esta app está en una subcarpeta, pero no comparte repositorio con otras (simulando)
-  root_dir         = "poc-frontdoor/front/contabilidad"
+  root_dir         = "front/contabilidad"
 }
 
 # 2. Monorepo App 1: Órdenes de Compra
@@ -28,13 +28,13 @@ module "frontend_ordenes_compra" {
   production_branch = "main"
 
   github_repo_owner = "didierymartinez"
-  github_repo_name  = "git-add-poc-frontdoor"
+  github_repo_name  = "poc-frontdoor"
 
   build_command    = "npm run build"
   build_output_dir = "dist"
   
   # MAGIA DEL MONOREPO: Le decimos a Cloudflare dónde vive exactamente
-  root_dir         = "poc-frontdoor/front/monorepo/apps/ordenes-de-compra"
+  root_dir         = "front/monorepo/apps/ordenes-de-compra"
 }
 
 # 3. Monorepo App 2: Facturación
@@ -46,11 +46,11 @@ module "frontend_facturacion" {
   production_branch = "main"
 
   github_repo_owner = "didierymartinez"
-  github_repo_name  = "ObligacionesPorPagar.Infraestructura"
+  github_repo_name  = "poc-frontdoor"
 
   build_command    = "npm run build"
   build_output_dir = "dist"
   
   # MAGIA DEL MONOREPO: Comparte el mismo repositorio que órdenes de compra, pero tiene su propia URL y pipeline
-  root_dir         = "poc-frontdoor/front/monorepo/apps/facturacion"
+  root_dir         = "front/monorepo/apps/facturacion"
 }
