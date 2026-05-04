@@ -70,7 +70,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1>Cosmos Cloudflare PoC v2</h1>
+      <h1>Cosmos Cloudflare PoC v2.1 (🚀)</h1>
       <div className="status-badge" style={{ background: token ? '#28a745' : '#dc3545', padding: '5px 15px', borderRadius: '20px', display: 'inline-block', marginBottom: '20px', color: 'white' }}>
         {token ? '🟢 Sesión Activa' : '🔴 Sin Sesión'}
       </div>
