@@ -6,13 +6,15 @@ services:
       - "3000"
     # No exponemos puertos a la máquina host, está aislado en la red interna de Docker
 
-  # 2. El API Gateway Interno (La Recepción)
+  # 2. El API Gateway Interno (YARP + .NET 8)
   gateway:
-    image: nginx:alpine
-    volumes:
-      - ./gateway/nginx.conf:/etc/nginx/nginx.conf:ro
+    build:
+      context: ./gateway/Cosmos.Gateway
+      dockerfile: Dockerfile
     ports:
-      - "8081:8080" # Lo exponemos en el 8081 localmente para no chocar con otros servicios
+      - "8081:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
     depends_on:
       - mock-api
 
