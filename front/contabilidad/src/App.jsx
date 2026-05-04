@@ -6,9 +6,9 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [token, setToken] = useState(localStorage.getItem('cosmos_token') || '')
 
-  // Configuración de WorkOS
+  // Configuración de WorkOS (User Management / AuthKit)
   const WORKOS_CLIENT_ID = 'client_01KFH6W3J1RM7X9566904X2CZ3'
-  const LOGIN_URL = `https://api.workos.com/sso/authorize?client_id=${WORKOS_CLIENT_ID}&response_type=code&redirect_uri=${window.location.origin}/callback`
+  const LOGIN_URL = `https://api.workos.com/user_management/authorize?client_id=${WORKOS_CLIENT_ID}&response_type=code&redirect_uri=${window.location.origin}/callback`
 
   useEffect(() => {
     // Si detectamos un código en la URL (retorno de WorkOS), podrías procesarlo aquí
