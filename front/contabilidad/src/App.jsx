@@ -11,20 +11,20 @@ function App() {
   const LOGIN_URL = `https://api.workos.com/sso/authorize?client_id=${WORKOS_CLIENT_ID}&response_type=code&redirect_uri=${window.location.origin}/callback`
 
   useEffect(() => {
-    // Si no hay token, podríamos redirigir automáticamente
-    // Para la PoC, dejaremos el botón para que el usuario pueda "simular" pegando un token
-    // Pero si quieres que sea automático, descomenta la línea de abajo:
-    // if (!token) window.location.href = LOGIN_URL;
+    // Si detectamos un código en la URL (retorno de WorkOS), podrías procesarlo aquí
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+    if (code && !token) {
+      console.log('Código de WorkOS detectado:', code);
+      // Aquí el frontend debería llamar al backend para intercambiar el código por un token real
+      // Por ahora, mostraremos un mensaje
+      setResponse({ message: 'Código de WorkOS recibido. En un sistema real, el Gateway intercambiaría esto por un Token.' });
+    }
   }, [token]);
 
   const handleLogin = () => {
-    // En una app real, esto redirigiría a WorkOS
-    // Para esta PoC, permitiremos al usuario pegar su token para probar el Gateway
-    const manualToken = prompt('Introduce tu JWT de WorkOS (o cualquier string para probar el rechazo del Gateway):');
-    if (manualToken) {
-      setToken(manualToken);
-      localStorage.setItem('cosmos_token', manualToken);
-    }
+    // REDIRECCIÓN REAL A WORKOS
+    window.location.href = LOGIN_URL;
   };
 
   const handleLogout = () => {
