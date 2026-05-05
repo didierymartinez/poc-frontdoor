@@ -21,7 +21,10 @@ const redirect = `${window.location.origin}${VITE_APP_BASE}`;
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AuthKitProvider clientId={WORKOS_CLIENT_ID} redirectUri={redirect}>
+    <AuthKitProvider 
+      clientId={WORKOS_CLIENT_ID}
+      redirectUri="https://cosmos-contabilidad-poc.pages.dev/api/auth/callback"
+    >
       <QueryClientProvider client={queryClient}>
         <SignalRProvider>
           <ThemeProvider theme={cosmosTheme}>
