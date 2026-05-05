@@ -1,0 +1,15 @@
+name: Deploy front
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  deploy:
+    uses: Cosmos-SincoERP/ObligacionesPorPagar.Infraestructura/.github/workflows/_reusable-deploy-front.yml@main
+    with:
+      app_name: oxp
+      environment: dev
+      storage_account_name: stfeoxpdeveus2001
+      web_endpoint: https://stfeoxpdeveus2001.z20.web.core.windows.net/oxp/
+      key_vault_name: kv-oxp-dev-eus2-001

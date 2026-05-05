@@ -1,0 +1,10 @@
+export { RegistroForm } from './ui/RegistroForm';
+export { useOnComercioRadicado } from './hooks/useOnComercioRadicado';
+export { useRegistroCompraStore } from './model/registro-compra.store';
+export type { FormularioComercioData } from './model/registro-compra.store';
+export type { FiscalSummary } from './hooks/useConceptosTable';
+export { deriveMode, getFormValues, buildBody, buildConceptoPayload } from './lib/compra-body-builder';
+export type { OxpMode } from './lib/compra-body-builder';
+export { useCompraGranularUpdates } from './hooks/useCompraGranularUpdates';
+export { useCompraSubmit } from './hooks/useCompraSubmit';
+export { useRadicacionCompra } from './hooks/useRadicacionCompra';

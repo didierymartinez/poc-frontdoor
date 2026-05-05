@@ -1,0 +1,7 @@
+services:
+  obligacionesporpagarfront:
+    container_name: obligacionesporpagarfront
+    build:
+      context: .
+    ports:
+      - "3000:80"
