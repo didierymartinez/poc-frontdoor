@@ -25,7 +25,7 @@ export const AUTO_SAVE_INTERVAL_MS =
 export const WORKOS_CLIENT_ID =
   runtimeConfig.workosClientId ??
   import.meta.env.VITE_WORKOS_CLIENT_ID ??
-  '';
+  'client_01KFH6W3J1RM7X9566904X2CZ3';
 
 
 export const VITE_APP_BASE = import.meta.env.VITE_APP_BASE ?? '';
