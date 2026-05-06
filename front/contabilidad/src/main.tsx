@@ -23,7 +23,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <AuthKitProvider 
       clientId={WORKOS_CLIENT_ID}
-      redirectUri="https://cosmos-contabilidad-poc.pages.dev/api/auth/callback"
+      redirectUri={redirect}
     >
       <QueryClientProvider client={queryClient}>
         <SignalRProvider>
